@@ -2,7 +2,11 @@ import 'dart:convert';
 
 class IsolateProvider {
   static dynamic jsonDecoderValue(String obj) {
-    var object = json.decode(obj);
-    return object;
+    try {
+      var object = json.decode(obj);
+      return object;
+    } catch (e) {
+      return null;
+    }
   }
 }
