@@ -34,6 +34,14 @@ class ServiceProvider {
         result.headers.addAll(header);
       }
 
+      if (kDebugMode) {
+        print({
+          "Type API": typeApi,
+          'param': parameter,
+          'header': header,
+        });
+      }
+
       httpx.StreamedResponse response = await result.send().timeout(
             const Duration(seconds: 20),
           );
