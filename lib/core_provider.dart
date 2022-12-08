@@ -14,6 +14,10 @@ class CoreProvider {
     required String typeApi,
     String? token,
   }) async {
+    if (kDebugMode) {
+      print({typeApi: parameter});
+    }
+
     var response = await ServiceProvider.httpHelper(
       url: url,
       method: method,
