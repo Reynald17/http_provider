@@ -24,6 +24,7 @@ class CoreProvider {
       typeApi: typeApi,
       header: header,
       parameter: parameter,
+      image: image,
     );
 
     var obj = await response.value?.stream.bytesToString();
