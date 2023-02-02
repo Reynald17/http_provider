@@ -39,7 +39,7 @@ class CoreProvider {
       }
       return HttpModel(
         message: StringProvider.valuefailed,
-        value: json.decode(obj!),
+        value: response.value?.statusCode,
       );
     }
 
