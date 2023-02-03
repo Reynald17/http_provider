@@ -13,6 +13,7 @@ class CoreProvider {
     required String method,
     required String typeApi,
     String? token,
+    bool disableJsonDecode = false,
   }) async {
     if (kDebugMode) {
       print({typeApi: parameter});
@@ -51,6 +52,9 @@ class CoreProvider {
     } else {
       if (obj.isEmpty) {
         throw const HttpModel(message: StringProvider.valuefailedDecodeObject);
+      }
+      if (disableJsonDecode) {
+        return HttpModel(message: StringProvider.valueSucces, value: obj);
       }
       var object = await compute(IsolateProvider.jsonDecoderValue, obj);
       return HttpModel(message: StringProvider.valueSucces, value: object);
