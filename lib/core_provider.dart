@@ -34,10 +34,9 @@ class CoreProvider {
         print('Failed');
       }
       return const HttpModel(message: StringProvider.valuefailed);
-    } else if (response.value?.statusCode != 200) {
-      if (kDebugMode) {
-        print({'Api $typeApi Response Code': response.value?.statusCode});
-      }
+    }
+
+    if (response.value?.statusCode == 403) {
       return HttpModel(
         message: StringProvider.valuefailed,
         value: response.value?.statusCode,
