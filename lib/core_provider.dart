@@ -36,12 +36,12 @@ class CoreProvider {
       return const HttpModel(message: StringProvider.valuefailed);
     }
 
-    if (response.value?.statusCode == 403) {
-      return HttpModel(
-        message: StringProvider.valuefailed,
-        value: response.value?.statusCode,
-      );
-    }
+    // if (response.value?.statusCode == 403) {
+    //   return HttpModel(
+    //     message: StringProvider.valuefailed,
+    //     value: response.value?.statusCode,
+    //   );
+    // }
 
     if (kDebugMode) {
       print({'Api $typeApi Result ': obj});
