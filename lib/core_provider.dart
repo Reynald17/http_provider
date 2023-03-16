@@ -56,7 +56,11 @@ class CoreProvider {
         return HttpModel(message: StringProvider.valueSucces, value: obj);
       }
       var object = await compute(IsolateProvider.jsonDecoderValue, obj);
-      return HttpModel(message: StringProvider.valueSucces, value: object);
+      return HttpModel(
+        message: StringProvider.valueSucces,
+        value: object,
+        httpCode: response.value?.statusCode,
+      );
     }
   }
 }
